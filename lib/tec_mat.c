@@ -1,6 +1,6 @@
 #include "stm32f103xb.h"
 #include "tec_mat.h"
-
+int alerta;
 char teclado[4][4]={
     {'1','2','3','A'},
     {'4','5','6','B'},    
@@ -53,7 +53,10 @@ void tec_mac(int f1, int f2, int f3, int f4, int c1, int c2, int c3, int c4){
     for(int i=0;i<4;i++){
         GPIOA->BSRR|=(1<<(filas[i] + 16));
         for(int j=0;j<4;j++){
-            if
+            if(columnas[j]=GPIOA -> IDR&(1<<);){
+                alerta = 1;
+            }
+
         }
     }
 }
