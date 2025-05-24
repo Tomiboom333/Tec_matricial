@@ -46,17 +46,19 @@ void tec_mat_Init(int f1, int f2, int f3, int f4, int c1, int c2, int c3, int c4
     GPIOA->BSRR|=(1<<(f4));
 }
 
-void tec_mac(int f1, int f2, int f3, int f4, int c1, int c2, int c3, int c4){
+char tec_mac(int f1, int f2, int f3, int f4, int c1, int c2, int c3, int c4){
     int filas[4]={f1,f2,f3,f4};
     int columnas[4]={c1,c2,c3,c4};
 
     for(int i=0;i<4;i++){
+        GPIOA->BSRR |= (1 << filas[0]) | (1 << filas[1]) | (1 << filas[2]) | (1 << filas[3]);
         GPIOA->BSRR|=(1<<(filas[i] + 16));
         for(int j=0;j<4;j++){
-            if(columnas[j]=GPIOA -> IDR&(1<<);){
-                alerta = 1;
-            }
-
+             if ((GPIOA->IDR & (1 << columnas[j])) == 0) {
+                return teclado[i][j];
+             }
         }
+    GPIOA->BSRR |= (1 << filas[i]);
     }
+    return 0;
 }
