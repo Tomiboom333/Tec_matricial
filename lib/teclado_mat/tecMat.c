@@ -47,7 +47,7 @@ char tecMat(int f1, int f2, int f3, int f4, int c1, int c2, int c3, int c4){
         for(int j=0;j<4;j++){
             if (!(GPIOA->IDR & (1 << columnas[j]))) return teclado[i][j];
         }
-        GPIOA->BSRR |= (1 << filas[i]);
+        GPIOA->BSRR |= (1 << filas[i]);//prendo la fila apagada
     }
-    return 0;
+    return 'x';
 }
