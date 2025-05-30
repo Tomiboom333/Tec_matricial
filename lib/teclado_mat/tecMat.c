@@ -1,5 +1,5 @@
 #include "stm32f103xb.h"
-#include "tec_mat.h"
+#include "tecMat.h"
 int alerta;
 char teclado[4][4]={
     {'1','2','3','A'},
@@ -8,7 +8,7 @@ char teclado[4][4]={
     {'*','0','#','D'}
 };
 
-void tec_mat_Init(int f1, int f2, int f3, int f4, int c1, int c2, int c3, int c4){
+void tecMat_Init(int f1, int f2, int f3, int f4, int c1, int c2, int c3, int c4){
 
     RCC -> APB2ENR|=RCC_APB2ENR_IOPAEN;
 
@@ -46,7 +46,7 @@ void tec_mat_Init(int f1, int f2, int f3, int f4, int c1, int c2, int c3, int c4
     GPIOA->BSRR|=(1<<(f4));
 }
 
-char tec_mac(int f1, int f2, int f3, int f4, int c1, int c2, int c3, int c4){
+char tecMat(int f1, int f2, int f3, int f4, int c1, int c2, int c3, int c4){
     int filas[4]={f1,f2,f3,f4};
     int columnas[4]={c1,c2,c3,c4};
 
