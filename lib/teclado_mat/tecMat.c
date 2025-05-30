@@ -1,6 +1,5 @@
 #include "stm32f103xb.h"
 #include "tecMat.h"
-int alerta;
 char teclado[4][4]={
     {'1','2','3','A'},
     {'4','5','6','B'},    

@@ -1,11 +1,15 @@
 #include "stm32f103xb.h"
-#include "tec_mat.h"
-char tecla;
+#include "tecMat.h"
+char pwi[6];
+char pwc[6]= "CB2008";
+int i=0;
 int main(void) {
-    int teclado = 0;
-    tec_mac_Init (1, 2, 3, 4, 5, 6, 7, 8);
+    tecMat_Init (1, 2, 3, 4, 5, 6, 7, 8);
     while (1) {
-        tecla = tec_mac(1, 2, 3, 4, 5, 6, 7, 8);
+        while((tecMat(1, 2, 3, 4, 5, 6, 7, 8) != 'x') | (i<6)){
+            pwi[i] = tecMat(1, 2, 3, 4, 5, 6, 7, 8);
+            i++;
+    }
     }
     return 0;
 }
